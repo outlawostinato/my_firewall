@@ -1,0 +1,80 @@
+{
+    "folders": [
+      {
+          "path": "."
+      }
+  ],
+    "settings": {
+      "editor.tabSize": 2,
+      "files.autoSave": "onFocusChange",
+      "aws.telemetry": false,
+      "breadcrumbs.enabled": true,
+      "dotnet-test-explorer.enableTelemetry": false,
+      "editor.autoClosingQuotes": "beforeWhitespace",
+      "gitlens.advanced.telemetry.enabled": false,
+      "gitlens.codeLens.enabled": false,
+      "prettier.eslintIntegration": true,
+      "prettier.requireConfig": true,
+      "javascript.format.enable": false,
+      "telemetry.enableCrashReporter": false,
+      "telemetry.enableTelemetry": false,
+      "markdown.previewFrontMatter": "show",
+      "editor.formatOnSave": true,
+      "terraform.telemetry.enabled": false,
+      "references.preferredLocation": "view",
+      "editor.suggestSelection": "first",
+      "editor.wordBasedSuggestions": false,
+      "yaml.customTags": [
+        "!And",
+        "!If",
+        "!Not",
+        "!Equals",
+        "!Or",
+        "!FindInMap",
+        "!Base64",
+        "!Cidr",
+        "!Ref",
+        "!Sub",
+        "!GetAtt",
+        "!GetAZs",
+        "!ImportValue",
+        "!Select",
+        "!Split",
+        "!Join"
+      ],
+      "yaml.format.enable": true,
+      "editor.codeLens": false,
+      "editor.suggest.snippetsPreventQuickSuggestions": false
+    },
+    "extensions": {
+      "recommendations": [
+        "bbenoist.vagrant",
+        "bierner.markdown-checkbox",
+        "bierner.markdown-emoji",
+        "bierner.markdown-mermaid",
+        "bierner.markdown-yaml-preamble",
+        "bungcip.better-toml",
+        "coenraads.bracket-pair-colorizer",
+        "chef-software.chef",
+        "davidanson.vscode-markdownlint",
+        "eamodio.gitlens",
+        "editorconfig.editorconfig",
+        "esbenp.prettier-vscode",
+        "foxundermoon.shell-format",
+        "hnw.vscode-auto-open-markdown-preview",
+        "ionutvmi.path-autocomplete",
+        "ramyaraoa.show-offset",
+        "redhat.vscode-yaml",
+        "shd101wyy.markdown-preview-enhanced",
+        "streetsidesoftware.code-spell-checker",
+        "timonwong.shellcheck",
+        "tyriar.sort-lines",
+        "gruntfuggly.todo-tree",
+        "hashicorp.terraform",
+        "ms-vscode.powershell",
+        "vscode-icons-team.vscode-icons",
+        "yzane.markdown-pdf",
+        "yzhang.markdown-all-in-one"
+      ]
+    }
+  }
