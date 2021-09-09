@@ -36,7 +36,7 @@ module MyFirewall
         end
       # if ip_version is not set in a rule, default to
       else
-        node['firewall']['ip_versions']
+        node['my_firewall']['ip_versions']
       end
     end
   end
