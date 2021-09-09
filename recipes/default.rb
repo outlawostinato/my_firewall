@@ -27,6 +27,7 @@ node['my_firewall']['ip_versions'].each do |ip_version|
   end
 end
 
+# Iterate through our different chains
 node['my_firewall']['iptables'].each do |chain, options|
   iptables_chain chain do
     chain chain.upcase
@@ -34,14 +35,19 @@ node['my_firewall']['iptables'].each do |chain, options|
     table options['chain']['table'] || :filter # optional
   end
 
+  # Iterate through the list of rules in our different individual chains.
   options['rules'].each do |name, config|
+    # Setting the line explicitly overrides all other options
     if config['line']
       iptables_rule name do
-        line config['line'] # specify line directly overriding other options
+        line config['line']
         action :create
       end
     else
+      # Iterate through our list of IP versions for each rule
+      # i.e.: we create IPv4, IPv6, or both IPv4 and IPv6 rules.
       my_firewall_ip_version(config).each do |ip_version|
+        # Create or open an IPTables rule resource for modification
         rule = edit_resource :iptables_rule, "#{name} #{ip_version}" do
           table         config['table'] || :filter # optional
           chain         chain.to_sym
@@ -51,10 +57,12 @@ node['my_firewall']['iptables'].each do |chain, options|
           action        :create
         end
 
+        # Iterate through a list of acceptable and optional parameters
         %w(protocol match source destination target jump go_to
           in_interface out_interface fragment line_number comment
           file_mode source_template cookbook sensitive config_file
         ).each do |property|
+          # modify our rule resource by "send"ing our property to our rule.
           rule.send(property, config[property]) if config[property]
         end
       end
