@@ -16,7 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-extend MyFirewall::FooHelpers
+extend MyFirewall::Helpers
 
 iptables_packages 'install iptables'
 
