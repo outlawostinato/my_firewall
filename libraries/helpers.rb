@@ -10,6 +10,9 @@ module MyFirewall
       %i(ipv4 ipv6)
     end
 
+    def my_firewall_reserved_words
+      %w(sport dport state)
+    end
     # Create "extra options" string
     def my_firewall_extra_options(config)
       # if 'extra_options' is defined, use it directly overriding any other settings

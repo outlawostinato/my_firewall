@@ -1,9 +1,14 @@
 default['my_firewall'] = {
-  'ip_versions': %i(ipv4 ipv6),
+  # uncomment this for IPv4 and IPv6
+  # 'ip_versions': %i(ipv4 ipv6),
+  'ip_versions': %i(ipv4),
   'iptables': {
     'INPUT': {
       'chain': {
+        # Uncomment this to set default inbound rule to DROP all traffic, 
+        # this is the secure setting
         # 'value': 'DROP [0:0]',
+        # This is the insecure setting
         'value': 'ACCEPT [0:0]',
       },
       'rules': {

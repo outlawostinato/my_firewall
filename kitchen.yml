@@ -21,16 +21,14 @@ platforms:
       pid_one_command: /bin/systemd
       intermediate_instructions:
         - RUN /usr/bin/apt-get update
-
-  - name: centos-8
-    driver:
-      image: dokken/centos-8
-      pid_one_command: /usr/lib/systemd/systemd
+  # TODO: Figure out how to run on cent-8
+  # - name: centos-8
+  #   driver:
+  #     image: dokken/centos-8
+  #     pid_one_command: /usr/lib/systemd/systemd
 
 suites:
   - name: default
-    run_list:
-      - recipe[my_firewall::default]
     verifier:
       inspec_tests:
         - test/integration/default
