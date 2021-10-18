@@ -5,7 +5,7 @@ default['my_firewall'] = {
   'iptables': {
     'INPUT': {
       'chain': {
-        # Uncomment this to set default inbound rule to DROP all traffic, 
+        # Uncomment this to set default inbound rule to DROP all traffic,
         # this is the secure setting
         # 'value': 'DROP [0:0]',
         # This is the insecure setting
