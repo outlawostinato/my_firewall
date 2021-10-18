@@ -55,6 +55,7 @@ Deny All
 default['my_firewall']['iptables']['INPUT']['chain'] = {
   'value': 'DROP [0:0]',
 }
+```
 
 
 Rules are arranged in the default['my_iptables']['iptables'][<CHAIN NAME>]['chain'] hash and follow the form:
@@ -63,7 +64,7 @@ Rules are arranged in the default['my_iptables']['iptables'][<CHAIN NAME>]['chai
 <Rule Name>: {
   **<Rule Options>
 }
-``
+```
 
 For example, an "Allow SSH" rule, might be written as:
 
