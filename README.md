@@ -22,8 +22,7 @@ Attributes
 * `default['my_iptables']['iptables']` - configuration of IPTables, refer to Usage below for detailed explanation.
 * `default['my_iptables']['iptables'][<CHAIN NAME>]` - Name of the chain we are going to manage.
 * `default['my_iptables']['iptables'][<CHAIN NAME>]['chain']` - Chain configuration Options.  Requires a "value".
-* `default['my_iptables']['iptables'][<CHAIN NAME>]['rules']` - Hash of rules.
-* `default['my_iptables']['iptables'][<CHAIN NAME>]['rules']`
+* `default['my_iptables']['iptables'][<CHAIN NAME>]['rules']` - Rule configuration options.  Refer to [`iptables_rule`](https://github.com/chef-cookbooks/iptables/blob/main/documentation/iptables_rule.md) documentation for a full list of acceptable options.
 
 Recipes
 -------
@@ -79,4 +78,26 @@ For example, an "Allow SSH" rule, might be written as:
 
 Note that the name will be added as a comment if no comment parameter is specified.
 
-Refer to the default attributes for a full demonstration.
+## Example
+
+Refer to the `attributes/default.rb` for extended usage.
+
+```ruby
+default['firewall'] = {
+  'iptables': {
+    'INPUT': {                        # Name of the chain
+      'chain': {
+        'value': 'DROP [0:0]',        # Default drop all policy
+      },
+      'rules': {
+        # Rule definition
+        'Allow Loopback': {           # Rule Name/Description
+          'ip_version': 'ipv4',       # ipv4 or ipv6, default both
+          'in_interface': 'lo',       # Interface rule applies to
+          'jump': 'ACCEPT',           # what to do with the packet
+        },
+      },
+    },
+  },
+}
+```
